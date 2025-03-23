@@ -1,6 +1,16 @@
 # Setup Project
 
 - `php artisan composer install`
+- update database credentails
+```bash
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+```
+- `php artisan migrate`
 
 If you get any issue due to migration then update `.env` file
 
