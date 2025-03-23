@@ -24,6 +24,7 @@ class User extends Authenticatable
         'location',
         'profile_picture',
         'password',
+        'firebase_uid',
     ];
 
     /**
@@ -95,7 +96,7 @@ class User extends Authenticatable
      */
     public function playerOfMatchAwards()
     {
-        return $this->hasMany(Match::class, 'player_of_match_id');
+        return $this->hasMany(CricketMatch::class, 'player_of_match_id');
     }
 
     /**
@@ -103,7 +104,7 @@ class User extends Authenticatable
      */
     public function scoredMatches()
     {
-        return $this->hasMany(Match::class, 'scorer_id');
+        return $this->hasMany(CricketMatch::class, 'scorer_id');
     }
 
     /**
@@ -111,7 +112,7 @@ class User extends Authenticatable
      */
     public function streamedMatches()
     {
-        return $this->hasMany(Match::class, 'streamer_id');
+        return $this->hasMany(CricketMatch::class, 'streamer_id');
     }
 
     /**

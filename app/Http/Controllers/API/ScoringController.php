@@ -37,7 +37,7 @@ class ScoringController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $match = Match::findOrFail($request->match_id);
+        $match = CricketMatch::findOrFail($request->match_id);
         $user = $request->user();
         $scorerUserType = UserType::where('name', 'Scorer')->first();
 
@@ -100,7 +100,7 @@ class ScoringController extends Controller
     public function endInnings(Request $request, $id)
     {
         $innings = Innings::findOrFail($id);
-        $match = Match::findOrFail($innings->match_id);
+        $match = CricketMatch::findOrFail($innings->match_id);
         $user = $request->user();
         $scorerUserType = UserType::where('name', 'Scorer')->first();
 
@@ -159,7 +159,7 @@ class ScoringController extends Controller
         }
 
         $innings = Innings::findOrFail($id);
-        $match = Match::findOrFail($innings->match_id);
+        $match = CricketMatch::findOrFail($innings->match_id);
         $user = $request->user();
         $scorerUserType = UserType::where('name', 'Scorer')->first();
 
@@ -233,7 +233,7 @@ class ScoringController extends Controller
         }
 
         $innings = Innings::findOrFail($id);
-        $match = Match::findOrFail($innings->match_id);
+        $match = CricketMatch::findOrFail($innings->match_id);
         $user = $request->user();
         $scorerUserType = UserType::where('name', 'Scorer')->first();
 
@@ -310,7 +310,7 @@ class ScoringController extends Controller
         }
 
         $innings = Innings::findOrFail($request->innings_id);
-        $match = Match::findOrFail($innings->match_id);
+        $match = CricketMatch::findOrFail($innings->match_id);
         $user = $request->user();
         $scorerUserType = UserType::where('name', 'Scorer')->first();
 
@@ -768,7 +768,7 @@ class ScoringController extends Controller
      */
     public function getMatchScore($id)
     {
-        $match = Match::with([
+        $match = CricketMatch::with([
             'team1',
             'team2',
             'innings' => function ($query) {
@@ -845,7 +845,7 @@ class ScoringController extends Controller
 
         $batsmanInnings = BatsmanInnings::findOrFail($id);
         $innings = Innings::findOrFail($batsmanInnings->innings_id);
-        $match = Match::findOrFail($innings->match_id);
+        $match = CricketMatch::findOrFail($innings->match_id);
         $user = $request->user();
         $scorerUserType = UserType::where('name', 'Scorer')->first();
 

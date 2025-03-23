@@ -55,7 +55,7 @@ class Team extends Model
      */
     public function homeMatches()
     {
-        return $this->hasMany(Match::class, 'team1_id');
+        return $this->hasMany(CricketMatch::class, 'team1_id');
     }
 
     /**
@@ -63,7 +63,7 @@ class Team extends Model
      */
     public function awayMatches()
     {
-        return $this->hasMany(Match::class, 'team2_id');
+        return $this->hasMany(CricketMatch::class, 'team2_id');
     }
 
     /**
@@ -71,7 +71,7 @@ class Team extends Model
      */
     public function matches()
     {
-        return Match::where('team1_id', $this->id)
+        return CricketMatch::where('team1_id', $this->id)
             ->orWhere('team2_id', $this->id);
     }
 

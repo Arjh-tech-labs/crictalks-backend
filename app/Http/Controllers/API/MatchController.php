@@ -22,7 +22,7 @@ class MatchController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Match::query();
+        $query = CricketMatch::query();
 
         // Filter by tournament
         if ($request->has('tournament_id')) {
@@ -151,7 +151,7 @@ class MatchController extends Controller
      */
     public function show($id)
     {
-        $match = Match::with([
+        $match = CricketMatch::with([
             'team1', 
             'team2', 
             'venue', 
@@ -206,7 +206,7 @@ class MatchController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $match = Match::findOrFail($id);
+        $match = CricketMatch::findOrFail($id);
         $user = $request->user();
         $organizerUserType = UserType::where('name', 'Organiser')->first();
         $scorerUserType = UserType::where('name', 'Scorer')->first();
@@ -319,7 +319,7 @@ class MatchController extends Controller
      */
     public function destroy(Request $request, $id)
     {
-        $match = Match::findOrFail($id);
+        $match = CricketMatch::findOrFail($id);
         $user = $request->user();
         $organizerUserType = UserType::where('name', 'Organiser')->first();
 
@@ -364,7 +364,7 @@ class MatchController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $match = Match::findOrFail($id);
+        $match = CricketMatch::findOrFail($id);
         $user = $request->user();
         $organizerUserType = UserType::where('name', 'Organiser')->first();
         $scorerUserType = UserType::where('name', 'Scorer')->first();
@@ -410,7 +410,7 @@ class MatchController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $match = Match::findOrFail($id);
+        $match = CricketMatch::findOrFail($id);
         $user = $request->user();
         $organizerUserType = UserType::where('name', 'Organiser')->first();
         $streamerUserType = UserType::where('name', 'Live Streamer')->first();
@@ -463,7 +463,7 @@ class MatchController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        $match = Match::findOrFail($id);
+        $match = CricketMatch::findOrFail($id);
         $user = $request->user();
         $organizerUserType = UserType::where('name', 'Organiser')->first();
         $streamerUserType = UserType::where('name', 'Live Streamer')->first();

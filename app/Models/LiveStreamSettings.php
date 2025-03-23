@@ -41,7 +41,7 @@ class LiveStreamSettings extends Model
      */
     public function match()
     {
-        return $this->belongsTo(Match::class);
+        return $this->belongsTo(CricketMatch::class);
     }
 }
 
