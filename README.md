@@ -2,6 +2,12 @@
 
 - `php artisan composer install`
 
+If you get any issue due to migration then update `.env` file
+
+```bash
+DB_COLLATION=<Your DB COLLATION> # Goto: DB >> Operations >> Table options >> Collation: Default
+```
+
 # Firebase and YouTube Integration
 
 This document provides information on how to integrate Firebase Authentication and YouTube Live Streaming with the Cricket Scoring CRM.
